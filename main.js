@@ -18,6 +18,10 @@ Vue.component('product', {
             <h1>{{ product }}</h1>
             <p>{{ description }}<span v-if="onSale"> / On Sale !</span></p>
             <a :href="link">Link</a>
+            <ul>
+              <li v-for="(size) in sizes" :key="size">{{ size }}</li>
+              <li v-for="n in 3" >Loop</li>
+            </ul>
             <p v-if="inStock">In Stock</p>
             <p v-else>Out of Stock</p>
   
@@ -50,6 +54,7 @@ Vue.component('product', {
           description: 'A pair of warm, fuzzy socks',
           link: '#product-tab',
           onSale: true,
+          sizes: ['S', 'M', 'L'],
           brand: 'Vue Mastery',
           selectedVariant: 0,
           details: ['80% cotton', '20% polyester', 'Gender-neutral'],
