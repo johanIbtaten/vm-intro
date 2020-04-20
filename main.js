@@ -16,6 +16,7 @@ Vue.component('product', {
   
         <div class="product-info">
             <h1>{{ product }}</h1>
+            <p v-show="onSale">{{ onSalePrint }}</p>
             <p>{{ description }}<span v-if="onSale"> / On Sale !</span></p>
             <a :href="link">Link</a>
             <ul>
@@ -63,6 +64,7 @@ Vue.component('product', {
           link: '#product-tab',
           onSale: true,
           sizes: ['S', 'M', 'L'],
+          onSale: true,
           brand: 'Vue Mastery',
           selectedVariant: 0,
           details: ['80% cotton', '20% polyester', 'Gender-neutral'],
@@ -109,7 +111,10 @@ Vue.component('product', {
               return "Free"
             }
               return 2.99
-          }
+          },
+          onSalePrint() {
+            return this.brand + ' ' + this.product + ' onSale'
+          },
       },
       mounted() {
         eventBus.$on('review-submitted', productReview => {
