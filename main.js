@@ -230,7 +230,7 @@ Vue.component('product', {
     }
   })
 
-Vue.component('info-tabs', {
+  Vue.component('info-tabs', {
     props: {
       shipping: {
         required: true
@@ -257,9 +257,7 @@ Vue.component('info-tabs', {
         </div>
 
         <div v-show="selectedTab === 'Details'">
-          <ul>
-            <li v-for="detail in details">{{ detail }}</li>
-          </ul>
+          <product-details :details="details"></product-details>          
         </div>
     
       </div>
@@ -272,8 +270,19 @@ Vue.component('info-tabs', {
     }
   })
 
-
-
+  Vue.component('product-details', {
+    props: {
+      details: {
+        type: Array,
+        required: true
+      }
+    },
+    template: `
+      <ul>
+        <li v-for="detail in details">{{ detail }}</li>
+      </ul>
+    `
+  })
   
   var app = new Vue({
       el: '#app',
