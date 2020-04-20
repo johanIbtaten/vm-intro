@@ -23,7 +23,7 @@ Vue.component('product', {
               <li v-for="n in 3" >Loop</li>
             </ul>
             <p v-if="inStock">In Stock</p>
-            <p v-else>Out of Stock</p>
+            <p v-else :class="{lineThrough: !inStock}">Out of Stock</p>
   
             <info-tabs :shipping="shipping" :details="details"></info-tabs>
   
@@ -77,7 +77,7 @@ Vue.component('product', {
               variantId: 2235,
               variantColor: 'blue',
               variantImage: 'https://www.vuemastery.com/images/challenges/vmSocks-blue-onWhite.jpg',
-              variantQuantity: 5     
+              variantQuantity: 0     
             }
           ],
           reviews: []
