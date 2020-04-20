@@ -17,6 +17,7 @@ Vue.component('product', {
         <div class="product-info">
             <h1>{{ product }}</h1>
             <p>{{ description }}</p>
+            <a :href="link">Link</a>
             <p v-if="inStock">In Stock</p>
             <p v-else>Out of Stock</p>
   
@@ -39,7 +40,7 @@ Vue.component('product', {
   
          </div> 
 
-         <product-tabs :reviews="reviews"></product-tabs>
+         <product-tabs :reviews="reviews" id="product-tab"></product-tabs>
       
       </div>
      `,
@@ -47,6 +48,7 @@ Vue.component('product', {
       return {
           product: 'Socks',
           description: 'A pair of warm, fuzzy socks',
+          link: '#product-tab',
           brand: 'Vue Mastery',
           selectedVariant: 0,
           details: ['80% cotton', '20% polyester', 'Gender-neutral'],
