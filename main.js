@@ -149,6 +149,17 @@ Vue.component('product', {
         </select>
       </p>
 
+      <div class="recommendation">
+        <p>Would you recommend this product ?</p>
+        <div>
+          <input type="radio" id="yes" value="yes" v-model="recommendation">
+          <label for="yes">Yes</label>        
+        </div>
+        <div>
+          <input type="radio" id="no" value="no" v-model="recommendation">
+          <label for="no">No</label>
+        </div>
+      </div>
       <p>
         <input type="submit" value="Submit">  
       </p>    
@@ -160,6 +171,7 @@ Vue.component('product', {
         name: null,
         review: null,
         rating: null,
+        recommendation: 'yes',
         errors: []
       }
     },
